@@ -12,29 +12,44 @@ namespace XamLayout20
     public class MainPage : ContentPage
     {
         Label theLabel;
+        Button clickMe;
+
         public MainPage()
         {
-            Button clickMe = new Button()
+            clickMe = new Button()
             {
-                Text = "Click Me"
+                Text = "Click Me To Change Text"
+            };
+
+            Button HideButton = new Button()
+            {
+                Text = "Click Me To Hide/show Button"
             };
 
             theLabel = new Label
             {
-                XAlign = TextAlignment.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
                 Text = "Welcome to Xamarin Forms!"
             };
 
 
             clickMe.Clicked += ClickMe_Clicked;
+            HideButton.Clicked += HideButton_Clicked;
             Content = new LayoutHost
             {
                 VerticalOptions = LayoutOptions.Center,
                 Children = {
                         theLabel,
-                        clickMe
+                        clickMe,
+                        HideButton
                     }
             };
+        }
+
+
+        private void HideButton_Clicked(object sender, EventArgs e)
+        {
+            clickMe.IsVisible = !clickMe.IsVisible;
         }
 
         private void ClickMe_Clicked(object sender, EventArgs e)
