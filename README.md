@@ -1,3 +1,10 @@
+Controlling visibility by removing the children looks like it works without causing everything to re-layout. 
+
+Using IsVisible or changing the Text on a Label Invalidates the Children on XF2.0 whereas on XF1.3 it did not
+
+I haven't found a way to change the text of a Label yet in XF2.0 that won't invalidate the measures on the parent.
+
+
 Changing Text in Version 2.0 now fires
 ```
 OnTextPropertyChanged event
@@ -34,4 +41,4 @@ Changing Visibility in Version 2.0 fires
         }
 ```
 
-So you can watch when LayoutChildren is called on the parent content page
+So you can watch when LayoutChildren is called on the parent content page.
